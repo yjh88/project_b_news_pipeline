@@ -1,0 +1,45 @@
+{
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "api_key_env": "OPENAI_API_KEY",
+    "api_key": "",
+    "timeout_sec": 30
+  },
+  "sources": {
+    "naver": {
+      "type": "crawl",
+      "url": "https://news.naver.com/section/105",
+      "category": "IT"
+    },
+    "yonhap_rss": {
+      "type": "rss",
+      "url": "https://www.yna.co.kr/rss/industry.xml",
+      "category": "산업/IT"
+    },
+    "google_rss": {
+      "type": "rss",
+      "url": "https://news.google.com/rss/search?q=AI+%EB%B0%98%EB%8F%84%EC%B2%B4+%EB%B0%94%EC%9D%B4%EC%98%A4&hl=ko&gl=KR&ceid=KR:ko",
+      "category": "IT/바이오"
+    }
+  },
+  "crawler": {
+    "timeout_sec": 10,
+    "delay_sec": 1.0,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) NewsTrendPipeline/1.0"
+  },
+  "cleaner": {
+    "duplicate_policy": "upsert",
+    "default_category": "일반",
+    "min_content_length": 20
+  },
+  "storage": {
+    "db_path": "data/news_pipeline.db",
+    "raw_jsonl_path": "data/raw_news.jsonl",
+    "clean_jsonl_path": "data/clean_news.jsonl",
+    "output_dir": "output"
+  },
+  "report": {
+    "top_n": 5
+  }
+}
