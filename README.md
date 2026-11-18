@@ -171,3 +171,34 @@ python main.py export --format all
 | 차트의 한글이 깨짐(□□□) | Windows(맑은 고딕)·macOS(AppleGothic)는 자동 적용됨. Linux는 `fonts-nanum` 등 한글 폰트 설치 |
 | 실제 수집 결과가 0건 | 네트워크 또는 사이트 구조 변경 문제일 수 있으며, 이 경우 샘플 데이터로 자동 대체됨 |
 | 초기화하고 다시 실행 | `data/`, `output/`, `logs/` 폴더를 삭제한 뒤 다시 실행 |
+
+## 5. 실행 결과 (Result)
+
+실제 프로젝트 폴더에서 각 명령을 실행한 터미널 화면을 캡처한 것입니다. (`result/` 폴더)
+
+| 단계 | 명령어 | 캡처 |
+| :--- | :--- | :--- |
+| 도움말 | `python main.py --help` | [01_help.png](result/01_help.png) |
+| 수집 | `python main.py fetch --source all --limit 10` | [02_fetch.png](result/02_fetch.png) |
+| 정제 | `python main.py clean --policy upsert` | [03_clean.png](result/03_clean.png) |
+| 요약 | `python main.py summarize --unsummarized --limit 10` | [04_summarize.png](result/04_summarize.png) |
+| 분석 | `python main.py analyze` | [05_analyze.png](result/05_analyze.png) |
+| 리포트 | `python main.py report --format both` | [06_report.png](result/06_report.png) |
+| 내보내기 | `python main.py export --format all` | [07_export.png](result/07_export.png) |
+| 목록 조회 | `python main.py list --page-size 15` | [08_list.png](result/08_list.png) |
+| 상세 조회 | `python main.py show --id 1` | [09_show.png](result/09_show.png) |
+
+> 캡처 당시 OpenAI API 키가 유효하지 않아(401) 요약·감성 분석은 내장 규칙 기반 방식으로 자동 대체되어 수행되었습니다.
+
+### 종합 대시보드 차트
+
+![dashboard](result/10_dashboard.png)
+
+생성된 종합 리포트: [result/11_insight_report.md](result/11_insight_report.md)
+
+### 실행 화면 미리보기
+
+![fetch](result/02_fetch.png)
+![summarize](result/04_summarize.png)
+![list](result/08_list.png)
+![show](result/09_show.png)
